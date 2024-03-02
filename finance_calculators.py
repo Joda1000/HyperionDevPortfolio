@@ -5,21 +5,8 @@ based on user's selection and inputs.
 
 import math
 
-WELCOME_MESSAGE = '''\nWelcome to the financial calculator. Please see the\
- calculations menu below:
-    investment  - to calculate the amount of interest you'll earn on your\
- investment
-    bond        - to calculate the amount you'll have to pay on a home loan\
-\n'''
-
-print(WELCOME_MESSAGE)
-
-calculation = (input("Enter either 'investment' or 'bond' from the menu above\
- to proceed: "))
-calculation = calculation.lower()
-
-
-if calculation == "investment":
+# Defining custom functions for menu options:
+def investement_calc():
     deposit = float(input("\nPlease enter the amount you are depositing: "))
     interest_rate = float(input("Please enter the interest rate: "))
     interest_rate = interest_rate / 100
@@ -39,8 +26,7 @@ interest: "))
 
     print(f"\nYou will earn {total_amount:.2f} on your investment.")
 
-
-elif calculation == "bond":
+def bond_calc():
     house_value = float(input("\nPlease enter the value of your house: "))
     interest_rate = float(input("Please enter the interest rate: "))
     months = float(input("Please enter how many months you plan to take to \
@@ -52,11 +38,38 @@ repay the bond: "))
     print(f"\nYou will need to repay {repayment:.2f} each month on your home \
 loan.")
 
-else:
-    print("Error: invalid entry.")
+def menu():
+    while True:
+        WELCOME_MESSAGE = '''\nWelcome to the financial calculator. Please see the\
+        calculations menu below:
+            investment  - to calculate the amount of interest you'll earn on your\
+        investment
+            bond        - to calculate the amount you'll have to pay on a home loan\
+        \n'''
+
+        print(WELCOME_MESSAGE)
+
+        calculation = (input("Enter either 'investment' or 'bond' from the menu above\
+        to proceed, or enter \"exit\" to quit the program: "))
+        calculation = calculation.lower()
 
 
-    
+        if calculation == "investment":
+            investement_calc()
+
+        elif calculation == "bond":
+            bond_calc()
+
+        elif calculation == "exit":    
+            print("Thank you for using the calculator. Goodbye!")
+            exit()
+
+        else:
+            print("Error: invalid entry. Please try again.")
+            break
+
+# Main code body, using the menu function:
+menu()    
 
 
 
