@@ -40,17 +40,17 @@ loan.")
 
 def menu():
     while True:
-        WELCOME_MESSAGE = '''\nWelcome to the financial calculator. Please see the\
-        calculations menu below:
-            investment  - to calculate the amount of interest you'll earn on your\
-        investment
-            bond        - to calculate the amount you'll have to pay on a home loan\
-        \n'''
+        WELCOME_MESSAGE = '''\nWelcome to the financial calculator. Please \
+see the calculations menu below:
+            investment  - to calculate the amount of interest you'll earn on\
+ your investment
+            bond        - to calculate the amount you'll have to pay on a \
+home loan\n'''
 
         print(WELCOME_MESSAGE)
 
-        calculation = (input("Enter either 'investment' or 'bond' from the menu above\
-        to proceed, or enter \"exit\" to quit the program: "))
+        calculation = (input("Enter either 'investment' or 'bond' from the \
+menu above to proceed, or enter \"exit\" to quit the program: "))
         calculation = calculation.lower()
 
 
@@ -66,7 +66,7 @@ def menu():
 
         else:
             print("Error: invalid entry. Please try again.")
-            break
+            continue
 
 # Main code body, using the menu function:
 menu()    
